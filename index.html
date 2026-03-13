@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Who is the most handsome?</title>
+
+<style>
+
+#container{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  margin-top:40px;
+}
+
+img{
+  width:150px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Who is the most handsome? 😎</h1>
+
+<div id="container">
+  <img id="ypk" src="Image/YPK.jpg">
+  <img id="psj" src="Image/PSJ.jpg">
+</div>
+
+<script>
+
+const ypk = document.getElementById("ypk");
+const psj = document.getElementById("psj");
+
+/* Run away function */
+function runAway(){
+
+  psj.style.position = "absolute";
+
+  const x = Math.random() * (window.innerWidth - 200);
+  const y = Math.random() * (window.innerHeight - 200);
+
+  psj.style.left = x + "px";
+  psj.style.top = y + "px";
+}
+
+/* Hard to catch */
+psj.addEventListener("mouseover", runAway);
+psj.addEventListener("mousemove", runAway);
+
+/* Click your image */
+ypk.addEventListener("click", function(){
+
+  psj.style.display = "none";
+  ypk.style.width = "350px";
+
+  document.querySelector("h1").innerText = "Correct Choice! 😎";
+
+});
+
+</script>
+
+</body>
+</html>
